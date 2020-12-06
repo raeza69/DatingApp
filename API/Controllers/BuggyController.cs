@@ -1,6 +1,6 @@
 using System;
 using API.Data;
-using API.Entity;
+using API.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,7 +41,7 @@ namespace API.Controllers
         [HttpGet("bad-request")]
         public ActionResult<string> GetBadRequest ()
         {
-            return BadRequest("This was not a good request");  
+            return BadRequest();  
         }
     }
 }
