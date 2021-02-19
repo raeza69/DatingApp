@@ -77,7 +77,7 @@ namespace API.Data
                 "Inbox" => query.Where(u => u.RecipientUsername == messageParams.Username 
                     && u.RecipientDeleted == false),
                 "Outbox" => query.Where(u => u.SenderUsername == messageParams.Username
-                    && u.RecipientDeleted == false),
+                    && u.SenderDeleted == false),
                 _ => query.Where(u => u.RecipientUsername ==
                     messageParams.Username && u.RecipientDeleted == false && u.DateRead == null)
             };

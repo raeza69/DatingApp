@@ -22,13 +22,18 @@ namespace API.Data
             _mapper = mapper;       
         }
 
-        public async Task<MemberDto> GetMemberAsync(string username)
+       public async Task<MemberDto> GetMemberAsync(string username)
         {
             return await _context.Users
                 .Where(x => x.UserName == username)
                 .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
                 .SingleOrDefaultAsync();
         }
+
+        // public Task<MemberDto> GetMembersAsync(string username)
+        // {
+        //     throw new NotImplementedException();
+        // }
 
         public async Task <PagedList<MemberDto>> GetMembersAsync(UserParams userParams)
         {
@@ -53,22 +58,19 @@ namespace API.Data
                     userParams.PageNumber, userParams.PageSize);
         }
 
-        public Task<MemberDto> GetMembersAsync(string username)
-        {
-            throw new NotImplementedException();
-        }
+        
 
-        public Task<IEnumerable<AppUser>> GetUserAsync()
-        {
-            throw new NotImplementedException();
-        }
+        // public Task<MemberDto> GetMembersAsync(string username)
+        // {
+        //     throw new NotImplementedException();
+        // }
 
-        public async Task <AppUser> GetUserByIdAsync(int id)
+        public async Task<AppUser> GetUserByIdAsync(int id)
         {
             return await _context.Users.FindAsync(id);
         }
 
-          public async Task<AppUser> GetUserByUsernameAsync(string username)
+        public async Task<AppUser> GetUserByUsernameAsync(string username)
         {
             return await _context.Users
                 .Include(p => p.Photos)
@@ -93,6 +95,5 @@ namespace API.Data
         {
             _context.Entry(user).State = EntityState.Modified;
         }
-
     }
 }

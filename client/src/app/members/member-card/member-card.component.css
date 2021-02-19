@@ -10,8 +10,10 @@
     transition-duration: 500ms;
     transition-timing-function: ease-out;
 }
+
 .card-img-wrapper {
     overflow: hidden;
+    position: relative;
 }
 
 .member-icons {
@@ -23,11 +25,13 @@
     margin-left: auto;
     opacity: 0;
 }
-card-img-wrapper:hover .member-icons {
+
+.card-img-wrapper:hover .member-icons {
     bottom: 0;
     opacity: 1;
 }
-animate {
+
+.animate {
     transition: all 0.3s ease-in-out;
 }
 
@@ -39,4 +43,4 @@ animate {
 .is-online {
     animation: fa-blink 1.5s linear infinite;
     color: rgb(1, 189, 42);
-} 
+}
